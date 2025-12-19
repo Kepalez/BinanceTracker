@@ -12,10 +12,11 @@ export interface BinanceTicker {
 export interface CryptoAsset {
   id: string;
   symbol: string;
-  name: string;     
-  price: number;
-  change24h: number;
-  isFavorite?: boolean;
+  price: number;      
+  change24h: number;  
+  lowPrice: number;
+  highPrice: number;
+  volume: string;
 }
 
 export type FetchState = 'idle' | 'loading' | 'success' | 'error';
