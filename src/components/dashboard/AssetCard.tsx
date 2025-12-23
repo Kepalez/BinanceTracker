@@ -20,7 +20,6 @@ export default function AssetCard({ asset, onClick }: AssetCardProps) {
           <h3 className="font-bold text-slate-800 text-lg group-hover:text-blue-600 transition-colors">
             {asset.symbol}
           </h3>
-          <p className="text-xs text-slate-500 font-medium">USDT Market</p>
         </div>
         
         <div
