@@ -1,6 +1,7 @@
 import { CryptoAsset } from "@/src/types";
 import { SearchX } from "lucide-react";
 import AssetCard from "./AssetCard";
+import { useLanguage } from "../providers/LanguageProvider";
 
 interface AssetListProps {
   assets: CryptoAsset[];
@@ -9,6 +10,7 @@ interface AssetListProps {
 }
 
 export default function AssetList({ assets, isLoading, onSelectAsset }: AssetListProps) {
+  const { t } = useLanguage();
   
   if (isLoading) {
     return (
@@ -24,8 +26,8 @@ export default function AssetList({ assets, isLoading, onSelectAsset }: AssetLis
     return (
       <div className="flex flex-col items-center justify-center py-20 text-slate-400">
         <SearchX size={48} className="mb-4 opacity-50" />
-        <p className="text-lg font-medium">No se encontraron criptomonedas</p>
-        <p className="text-sm">Intenta buscar con otro símbolo (ej. ETH, DOGE)</p>
+        <p className="text-lg font-medium">{t.details.notFound}</p>
+        <p className="text-sm">{t.details.searchHint}</p>
       </div>
     );
   }

@@ -7,22 +7,23 @@ import AssetDetailsModal from '../components/modal/AssetDetailsModal';
 import { Search, RefreshCw, AlertCircle } from 'lucide-react';
 import { CryptoAsset } from '../types';
 import AssetDetailsPanel from '../components/panel/AssetDetailPanel';
+import { useLanguage } from '../components/providers/LanguageProvider';
 
 export default function DashboardPage() {
   const { assets, loading, error, search, setSearch, refresh } = useCryptoData();
   const [selectedAsset, setSelectedAsset] = useState<CryptoAsset | null>(null);
-
+  const { t } = useLanguage();
   return (
     <div className="h-full flex flex-col md:flex-row overflow-hidden">
       
-      <div className="flex-1 flex flex-col h-full overflow-hidden bg-slate-50 dark:bg-slate-950"> {/* Fondo oscuro */}
+      <div className="flex-1 flex flex-col h-full overflow-hidden bg-slate-50 dark:bg-slate-950">
         
         <div className="p-6 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm z-10">
           <div className="max-w-4xl mx-auto space-y-4">
             <div className="flex justify-between items-center">
-              <h2 className="text-xl font-bold text-slate-800 dark:text-white">Market</h2>
+              <h2 className="text-xl font-bold text-slate-800 dark:text-white">{t.market.title}</h2>
               <div className="text-xs text-slate-500">
-                {assets.length} results
+                {assets.length} {t.market.results}
               </div>
             </div>
 
@@ -31,15 +32,15 @@ export default function DashboardPage() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                 <input
                   type="text"
-                  placeholder="Buscar activo..."
+                  placeholder={t.market.searchPlaceholder}
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border-transparent focus:bg-white dark:focus:bg-slate-900 border focus:border-blue-500 rounded-lg outline-none text-sm placeholder:text-slate-400"                />
+                  className="w-full pl-10 pr-4 py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border-transparent focus:bg-white dark:focus:bg-slate-900 border focus:border-blue-500 rounded-lg outline-none text-sm placeholder:text-slate-400"/>
               </div>
               <button 
                 onClick={refresh}
                 disabled={loading}
-                className="p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 disabled:opacity-50 shadow-sm"              >
+                className="p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 disabled:opacity-50 shadow-sm">
                 <RefreshCw size={18} className={loading ? "animate-spin" : ""} />
               </button>
             </div>
@@ -52,7 +53,7 @@ export default function DashboardPage() {
               <div className="mb-6 p-4 bg-red-50 text-red-700 rounded-lg border border-red-100 flex items-center gap-3">
                 <AlertCircle size={20} />
                 <span>{error}</span>
-                <button onClick={refresh} className="ml-auto text-sm font-bold underline">Retry</button>
+                <button onClick={refresh} className="ml-auto text-sm font-bold underline">{t.details.retry}</button>
               </div>
             )}
 
