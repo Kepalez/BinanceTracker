@@ -28,7 +28,10 @@ export default function PriceChart({ data, isPositive }: PriceChartProps) {
             contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
             itemStyle={{ color: '#1f2937', fontWeight: 'bold' }}
             labelStyle={{ fontSize:"14px",  color: '#1f2937', fontWeight: 'normal' }}
-            formatter={(value: number) => [`$${value.toLocaleString()}`]}
+            formatter={(value: number | string | Array<number | string> | undefined) => {
+              if (typeof value !== 'number') return [''];
+              return [`$${value.toLocaleString()}`];
+            }}
           />
           
           <Area 
