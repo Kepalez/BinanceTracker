@@ -10,7 +10,6 @@ interface AssetListProps {
 
 export default function AssetList({ assets, isLoading, onSelectAsset }: AssetListProps) {
   
-  // Estado de carga (Skeleton simple)
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -21,7 +20,6 @@ export default function AssetList({ assets, isLoading, onSelectAsset }: AssetLis
     );
   }
 
-  // Estado vacío (sin resultados)
   if (assets.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-slate-400">
@@ -32,7 +30,6 @@ export default function AssetList({ assets, isLoading, onSelectAsset }: AssetLis
     );
   }
 
-  // Lista Grid
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-10">
       {assets.map((asset) => (

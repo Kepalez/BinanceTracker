@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body className={`${inter.className} bg-slate-50 text-slate-900 h-screen overflow-hidden flex`}>
         <aside className="hidden md:flex w-64 flex-col border-r border-slate-200 bg-white p-4">
           <h1 className="text-xl font-bold text-blue-600 mb-6">CryptoView</h1>
@@ -25,7 +25,7 @@ export default function RootLayout({
           </nav>
         </aside>
 
-        <main className="flex-1 flex flex-col h-full overflow-hidden relative">
+        <main className="flex-1 bg-white flex flex-col h-full overflow-hidden relative">
           <div className="flex-1 overflow-y-auto p-4 md:p-8">
             {children}
           </div>

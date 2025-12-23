@@ -23,7 +23,6 @@ export default function AssetCard({ asset, onClick }: AssetCardProps) {
           <p className="text-xs text-slate-500 font-medium">USDT Market</p>
         </div>
         
-        {/* Badge de porcentaje */}
         <div
           className={cn(
             "flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-full",
