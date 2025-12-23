@@ -28,7 +28,7 @@ export default function RootLayout({
               <div className="flex items-center gap-2">
                 <div className="relative w-10 h-10">
                   <Image 
-                    src="/logo.png" 
+                    src="/Logo.png" 
                     alt="Logo" 
                     fill 
                     className="object-contain"

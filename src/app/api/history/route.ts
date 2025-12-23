@@ -12,7 +12,7 @@ export async function GET(request: Request) {
 
   try {
     const res = await fetch(
-      `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`
+      `https://data-api.binance.vision/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`
     );
 
     if (!res.ok) throw new Error('Failed to fetch history');
@@ -26,6 +26,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json(formattedData);
   } catch (error) {
+    console.error("History API Error:", error);
     return NextResponse.json({ error: 'Error fetching history' }, { status: 500 });
   }
 }

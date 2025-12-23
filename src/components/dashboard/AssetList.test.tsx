@@ -18,7 +18,6 @@ describe('AssetList', () => {
 
   it('shows empty state message when no assets provided', () => {
     render(<AssetList assets={[]} isLoading={false} onSelectAsset={vi.fn()} />);
-    // CORRECCIÓN: Texto en Inglés
     expect(screen.getByText('No cryptocurrencies found')).toBeInTheDocument();
   });
 

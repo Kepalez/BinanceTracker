@@ -41,9 +41,7 @@ export const useCryptoData = () => {
 
   useEffect(() => {
     fetchData();
-    
-    //const interval = setInterval(fetchData, 10000);
-    //return () => clearInterval(interval);
+
   }, [fetchData]);
 
   const filteredAssets = useMemo(() => {
