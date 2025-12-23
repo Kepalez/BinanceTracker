@@ -71,7 +71,7 @@ To scale this application for a production environment with thousands of users, 
 
 ## Cloud Infrastructure (AWS)
 
-In the case od deploying this project to AWS, arquitecture would require the following services for best practices:
+In the case of deploying this project to AWS, the arquitecture would require the following services for best practices:
 
 1. **AWS Amplify:** For hosting the Next.js application, managing CI/CD pipelines, and handling SSR/API routes automatically.
 2.  **Amazon CloudFront:** As a CDN to cache static assets and API responses at the edge, reducing latency for global users.
