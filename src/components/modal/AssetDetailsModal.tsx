@@ -33,7 +33,7 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-all"
+      className="md:hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm p-0 sm:p-4 transition-all"
       onClick={onClose}
     >
       <div 
@@ -47,7 +47,7 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
               {asset.symbol}
               <span className="text-sm font-normal text-slate-500 bg-slate-200 px-2 py-0.5 rounded-md">USDT</span>
             </h2>
-            <p className="text-slate-500 text-sm mt-1">Detalle de mercado 24h</p>
+            <p className="text-slate-500 text-sm mt-1">Market details 24/7</p>
           </div>
           <button 
             onClick={onClose}
@@ -103,10 +103,10 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
 
         <div className="p-6 bg-slate-50 border-t border-slate-100 flex gap-3">
           <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors">
-            Comprar {asset.symbol}
+            Purchase {asset.symbol}
           </button>
           <button className="flex-1 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold py-3 rounded-xl transition-colors">
-            Añadir a Favoritos
+            Add to favorites
           </button>
         </div>
       </div>

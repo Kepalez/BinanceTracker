@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import "./globals.css";
-// import Sidebar from "@/components/layout/Sidebar"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Binance Tracker",
+  title: "Shimeji Market",
   description: "Crypto market analysis",
 };
 
@@ -16,19 +16,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-slate-50 text-slate-900 h-screen overflow-hidden flex`}>
-        <aside className="hidden md:flex w-64 flex-col border-r border-slate-200 bg-white p-4">
-          <h1 className="text-xl font-bold text-blue-600 mb-6">CryptoView</h1>
-          <nav>
-            <div className="p-2 bg-blue-50 text-blue-700 rounded-md">Market</div>
-          </nav>
-        </aside>
-
-        <main className="flex-1 bg-white flex flex-col h-full overflow-hidden relative">
-          <div className="flex-1 overflow-y-auto p-4 md:p-8">
-            {children}
+    <html lang="es">
+      <body className={`${inter.className} bg-slate-50 text-slate-900 h-screen overflow-hidden flex flex-col`}>
+        <header className="bg-white border-b border-slate-200 px-6 py-2 flex items-center gap-2">
+          <div className="relative w-10 h-10">
+            <Image 
+              src="/logo.png" 
+              alt="Logo" 
+              fill 
+              className="object-contain"
+              priority
+            />
           </div>
+          <h1 className="text-xl font-bold text-slate-900 tracking-tight">Shimeji Market</h1>
+        </header>
+
+        <main className="flex-1 overflow-hidden relative">
+          {children}
         </main>
       </body>
     </html>
