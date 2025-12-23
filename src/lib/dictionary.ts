@@ -6,7 +6,7 @@ export const translations = {
       title: "Shimeji Market",
     },
     market: {
-      title: "Market",
+      title: "Asset search page",
       results: "results",
       searchPlaceholder: "Search asset...",
       spotMarket: "Spot market",
@@ -26,14 +26,16 @@ export const translations = {
       loading: "Loading...",
       notFound: "No cryptocurrencies found",
       searchHint: "Try searching for another symbol (e.g. ETH, DOGE)",
+      marketCap: "Approx Cap",
+      apiPro: "(Requires Pro API)",
     },
   },
   es: {
     header: {
-      title: "Mercado Shimeji",
+      title: "Shimeji Market",
     },
     market: {
-      title: "Mercado",
+      title: "Búsqueda de activos",
       results: "resultados",
       searchPlaceholder: "Buscar activo...",
       spotMarket: "Mercado Spot",
@@ -53,6 +55,8 @@ export const translations = {
       loading: "Cargando...",
       notFound: "No se encontraron criptomonedas",
       searchHint: "Intenta buscar otro símbolo (ej. ETH, DOGE)",
+      marketCap: "Cap. Aprox",
+      apiPro: "(Requiere API Pro)",
     },
   },
 };

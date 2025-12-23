@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { X, TrendingUp, TrendingDown, Activity, BarChart3 } from 'lucide-react';
 import { CryptoAsset } from '@/src/types';
 import { cn, formatCurrency, formatPercentage } from '@/src/lib/utils';
+import { useLanguage } from '../providers/LanguageProvider';
 
 interface AssetDetailsModalProps {
   asset: CryptoAsset | null;
@@ -10,6 +11,7 @@ interface AssetDetailsModalProps {
 }
 
 export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetailsModalProps) {
+  const { t } = useLanguage();
   
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -46,7 +48,7 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
             <h2 className="text-3xl font-bold text-slate-800 dark:text-white flex items-center gap-2">
               {asset.symbol}
             </h2>
-            <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Market details 24/7</p>
+            <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">{t.details.marketDetails}</p>
           </div>
           <button 
             onClick={onClose}
@@ -65,7 +67,6 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
             <div 
               className={cn(
                 "inline-flex items-center gap-1 mt-2 px-3 py-1 rounded-full text-sm font-bold",
-                // Mismos colores condicionales que en la tarjeta para consistencia
                 isPositive 
                   ? "bg-green-100 text-green-700 dark:bg-emerald-900/30 dark:text-emerald-400" 
                   : "bg-red-100 text-red-700 dark:bg-rose-900/30 dark:text-rose-400"
@@ -80,24 +81,24 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
 
           <div className="grid grid-cols-2 gap-4">
             <StatBox 
-              label="Precio Máximo (24h)" 
+              label={t.details.high24h}
               value={formatCurrency(asset.highPrice)} 
               icon={<TrendingUp className="text-green-500" size={18} />} 
             />
             <StatBox 
-              label="Precio Mínimo (24h)" 
+              label={t.details.low24h}
               value={formatCurrency(asset.lowPrice)} 
               icon={<TrendingDown className="text-red-500" size={18} />} 
             />
             <StatBox 
-              label="Volumen (BTC/Asset)" 
+              label={t.details.volume}
               value={parseFloat(asset.volume).toLocaleString()} 
               icon={<Activity className="text-blue-500" size={18} />} 
             />
             <StatBox 
-              label="Capitalización Aprox" 
+              label={t.details.marketCap}
               value="N/A" 
-              subtext="(Requiere API Pro)"
+              subtext={t.details.apiPro}
               icon={<BarChart3 className="text-purple-500" size={18} />} 
             />
           </div>
@@ -105,10 +106,10 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
 
         <div className="p-6 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 flex gap-3">
           <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors">
-            Purchase {asset.symbol}
+            {t.details.purchase} {asset.symbol}
           </button>
           <button className="flex-1 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold py-3 rounded-xl transition-colors">
-            Add to favorites
+            {t.details.addToFavorites}
           </button>
         </div>
       </div>
