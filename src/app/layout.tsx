@@ -22,11 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning> 
       {/* suppressHydrationWarning es necesario para next-themes en el html tag */}
-      <body className={`${inter.className} bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 h-screen overflow-hidden flex flex-col transition-colors duration-300`}>
+      <body className={`${inter.className} bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 h-screen overflow-hidden flex flex-col duration-300`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           
           {/* Header Actualizado */}
-          <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-2 flex items-center justify-between gap-2 transition-colors">
+          <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-2 flex items-center justify-between gap-2">
             <div className="flex items-center gap-2">
               <div className="relative w-10 h-10">
                 <Image 
