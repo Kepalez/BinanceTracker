@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { X, TrendingUp, TrendingDown, Activity, DollarSign, BarChart3 } from 'lucide-react';
+import { X, TrendingUp, TrendingDown, Activity, BarChart3 } from 'lucide-react';
 import { CryptoAsset } from '@/src/types';
 import { cn, formatCurrency, formatPercentage } from '@/src/lib/utils';
 
@@ -37,21 +37,20 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
       onClick={onClose}
     >
       <div 
-        className="bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+        className="bg-white dark:bg-slate-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         
-        <div className="flex justify-between items-start p-6 border-b border-slate-100 bg-slate-50/50">
+        <div className="flex justify-between items-start p-6 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
           <div>
-            <h2 className="text-3xl font-bold text-slate-800 flex items-center gap-2">
+            <h2 className="text-3xl font-bold text-slate-800 dark:text-white flex items-center gap-2">
               {asset.symbol}
-              <span className="text-sm font-normal text-slate-500 bg-slate-200 px-2 py-0.5 rounded-md">USDT</span>
             </h2>
-            <p className="text-slate-500 text-sm mt-1">Market details 24/7</p>
+            <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Market details 24/7</p>
           </div>
           <button 
             onClick={onClose}
-            className="p-2 bg-white rounded-full hover:bg-slate-100 border border-slate-200 text-slate-500 transition-colors"
+            className="p-2 bg-white dark:bg-slate-800 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 transition-colors"
           >
             <X size={20} />
           </button>
@@ -60,13 +59,16 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
         <div className="p-6 space-y-6">
           
           <div className="text-center">
-            <span className="text-5xl font-bold tracking-tighter text-slate-900 block">
+            <span className="text-5xl font-bold tracking-tighter text-slate-900 dark:text-white block">
               {formatCurrency(asset.price)}
             </span>
             <div 
               className={cn(
                 "inline-flex items-center gap-1 mt-2 px-3 py-1 rounded-full text-sm font-bold",
-                isPositive ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+                // Mismos colores condicionales que en la tarjeta para consistencia
+                isPositive 
+                  ? "bg-green-100 text-green-700 dark:bg-emerald-900/30 dark:text-emerald-400" 
+                  : "bg-red-100 text-red-700 dark:bg-rose-900/30 dark:text-rose-400"
               )}
             >
               {isPositive ? <TrendingUp size={16} /> : <TrendingDown size={16} />}
@@ -74,7 +76,7 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
             </div>
           </div>
 
-          <hr className="border-slate-100" />
+          <hr className="border-slate-100 dark:border-slate-800" />
 
           <div className="grid grid-cols-2 gap-4">
             <StatBox 
@@ -101,11 +103,11 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
           </div>
         </div>
 
-        <div className="p-6 bg-slate-50 border-t border-slate-100 flex gap-3">
+        <div className="p-6 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 flex gap-3">
           <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors">
             Purchase {asset.symbol}
           </button>
-          <button className="flex-1 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold py-3 rounded-xl transition-colors">
+          <button className="flex-1 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold py-3 rounded-xl transition-colors">
             Add to favorites
           </button>
         </div>
@@ -116,12 +118,12 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
 
 function StatBox({ label, value, icon, subtext }: { label: string, value: string, icon: React.ReactNode, subtext?: string }) {
   return (
-    <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
-      <div className="flex items-center gap-2 mb-2 text-slate-500 text-xs font-semibold uppercase">
+    <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+      <div className="flex items-center gap-2 mb-2 text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase">
         {icon}
         {label}
       </div>
-      <div className="text-lg font-bold text-slate-800 truncate" title={value}>
+      <div className="text-lg font-bold text-slate-800 dark:text-slate-100 truncate" title={value}>
         {value}
       </div>
       {subtext && <div className="text-xs text-slate-400 mt-1">{subtext}</div>}

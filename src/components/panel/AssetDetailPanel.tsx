@@ -85,7 +85,7 @@ export default function AssetDetailsPanel({ asset }: AssetDetailsPanelProps) {
           <StatRow label="Volume" value={parseFloat(asset.volume).toLocaleString()} />
         </div>
 
-        <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-100 dark:border-slate-700 h-64 relative overflow-hidden">          {loadingHistory ? (
+        <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700 h-64 relative overflow-hidden">          {loadingHistory ? (
           <div className="absolute inset-0 flex items-center justify-center text-slate-400 gap-2 animate-pulse">
             <Activity size={20} className="animate-spin" />
             <span className="text-sm">Loading Chart...</span>
