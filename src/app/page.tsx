@@ -15,12 +15,12 @@ export default function DashboardPage() {
   return (
     <div className="h-full flex flex-col md:flex-row overflow-hidden">
       
-      <div className="flex-1 flex flex-col h-full overflow-hidden bg-slate-50">
+      <div className="flex-1 flex flex-col h-full overflow-hidden bg-slate-50 dark:bg-slate-950"> {/* Fondo oscuro */}
         
-        <div className="p-6 bg-white border-b border-slate-200 shadow-sm z-10">
+        <div className="p-6 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm z-10 transition-colors">
           <div className="max-w-4xl mx-auto space-y-4">
             <div className="flex justify-between items-center">
-              <h2 className="text-xl font-bold text-slate-800">Market</h2>
+              <h2 className="text-xl font-bold text-slate-800 dark:text-white">Market</h2>
               <div className="text-xs text-slate-500">
                 {assets.length} results
               </div>
@@ -34,14 +34,12 @@ export default function DashboardPage() {
                   placeholder="Buscar activo..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 bg-slate-100 text-slate-400 border-transparent focus:bg-white border focus:border-blue-500 rounded-lg outline-none transition-all text-sm"
-                />
+                  className="w-full pl-10 pr-4 py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border-transparent focus:bg-white dark:focus:bg-slate-900 border focus:border-blue-500 rounded-lg outline-none transition-all text-sm placeholder:text-slate-400"                />
               </div>
               <button 
                 onClick={refresh}
                 disabled={loading}
-                className="p-2.5 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 text-slate-600 disabled:opacity-50 transition-colors shadow-sm"
-              >
+                className="p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 disabled:opacity-50 transition-colors shadow-sm"              >
                 <RefreshCw size={18} className={loading ? "animate-spin" : ""} />
               </button>
             </div>
@@ -67,7 +65,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <aside className="hidden md:block w-100 border-l border-slate-200 bg-white h-full shadow-xl z-20">
+      <aside className="hidden md:block w-100 border-l border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 h-full shadow-xl z-20 transition-colors"> 
         <AssetDetailsPanel asset={selectedAsset} />
       </aside>
 

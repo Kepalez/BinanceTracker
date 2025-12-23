@@ -13,11 +13,11 @@ export default function AssetCard({ asset, onClick }: AssetCardProps) {
   return (
     <button
       onClick={() => onClick(asset)}
-      className="group flex flex-col w-full text-left bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-200"
+      className="group flex flex-col w-full text-left bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-200"
     >
       <div className="flex justify-between items-start w-full mb-2">
         <div>
-          <h3 className="font-bold text-slate-800 text-lg group-hover:text-blue-600 transition-colors">
+          <h3 className="font-bold text-slate-800 dark:text-slate-100 text-lg group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
             {asset.symbol}
           </h3>
         </div>
@@ -26,8 +26,8 @@ export default function AssetCard({ asset, onClick }: AssetCardProps) {
           className={cn(
             "flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-full",
             isPositive 
-              ? "bg-emerald-50 text-emerald-700" 
-              : "bg-rose-50 text-rose-700"
+              ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400" 
+              : "bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400"
           )}
         >
           {isPositive ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
@@ -36,7 +36,7 @@ export default function AssetCard({ asset, onClick }: AssetCardProps) {
       </div>
 
       <div className="mt-auto">
-        <span className="text-2xl font-bold text-slate-900 tracking-tight">
+        <span className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
           {formatCurrency(asset.price)}
         </span>
       </div>
