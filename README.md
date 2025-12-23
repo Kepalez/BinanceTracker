@@ -21,10 +21,10 @@ This project leverages the latest features of the React ecosystem to ensure spee
 
 AI tools were utilized as productivity accelerators in the following areas:
 
-1.  **Testing Infrastructure:** Assisted in configuring the Vitest + JSDOM environment, specifically mocking browser APIs like window.matchMedia and localStorage to ensure test stability.
-2.  **Type Definitions:** Used to generate accurate TypeScript interfaces from raw API JSON responses, reducing manual errors.
-3.  **Visual Debugging:** Helped diagnose and resolve a flickering issue during Dark Mode transitions by identifying conflicts between global CSS transitions and component-level states.
-4.  **Boilerplate:** Generated the initial setup for Tailwind v4 and the ThemeProvider context structure.
+- **Testing Infrastructure:** Assisted in configuring the Vitest + JSDOM environment, specifically mocking browser APIs like window.matchMedia and localStorage to ensure test stability.
+- **Type Definitions:** Used to generate accurate TypeScript interfaces from raw API JSON responses, reducing manual errors.
+- **Visual Debugging:** Helped diagnose and resolve a flickering issue during Dark Mode transitions by identifying conflicts between global CSS transitions and component-level states.
+- **Boilerplate:** Generated the initial setup for Tailwind v4 and the ThemeProvider context structure.
 
 All AI-generated code was reviewed, refactored, and integrated into the custom architecture.
 
@@ -56,27 +56,27 @@ The Binance public API blocks direct requests from the browser.
 ### Deployment Specifics
 During deployment, two environment-specific issues were addressed:
 
-1. API Geo-blocking: Vercel's default US region is blocked by the main Binance API. The endpoint was switched to data-api.binance.vision to ensure global access reliability.
+- API Geo-blocking: Vercel's default US region is blocked by the main Binance API. The endpoint was switched to data-api.binance.vision to ensure global access reliability.
 
-2. Case Sensitivity: A file naming mismatch (Logo.png vs logo.png) caused 404 errors on Vercel's Linux environment despite working locally. This reinforces the importance of strict casing conventions in imports.
+- Case Sensitivity: A file naming mismatch (Logo.png vs logo.png) caused 404 errors on Vercel's Linux environment despite working locally. This reinforces the importance of strict casing conventions in imports.
 
 ## Scalability & Future Improvements
 
 To scale this application for a production environment with thousands of users, the following improvements would be implemented:
 
-1.  **State Management:** Migrate from native fetch/useEffect to TanStack Query. This would handle background refetching, caching, and request deduplication automatically.
-2.  **Real-Time Data:** Replace polling with WebSockets to provide sub-second updates and visual ticks on price changes.
-3.  **List Virtualization:** Implement react-window or react-virtuoso to render only the visible items in the DOM, allowing the asset list to scale to thousands of items without performance degradation.
-4.  **E2E Testing:** Add Playwright or Cypress to automate full user flows in real browser environments.
+- **State Management:** Migrate from native fetch/useEffect to TanStack Query. This would handle background refetching, caching, and request deduplication automatically.
+- **Real-Time Data:** Replace polling with WebSockets to provide sub-second updates and visual ticks on price changes.
+- **List Virtualization:** Implement react-window or react-virtuoso to render only the visible items in the DOM, allowing the asset list to scale to thousands of items without performance degradation.
+- **E2E Testing:** Add Playwright or Cypress to automate full user flows in real browser environments.
 
 ## Cloud Infrastructure (AWS)
 
-If deploying to AWS, the architecture would leverage the following services:
+In the case od deploying this project to AWS, arquitecture would require the following services for best practices:
 
-- **AWS Amplify:** For hosting the Next.js application, managing CI/CD pipelines, and handling SSR/API routes automatically.
-- **Amazon CloudFront:** As a CDN to cache static assets and API responses at the edge, reducing latency for global users.
-- **AWS Lambda:** To run the API proxy routes serverlessly, allowing for automatic scaling during traffic spikes.
-- **Amazon ElastiCache:** To cache Binance API responses. This would act as a buffer between the user base and Binance, preventing rate-limiting by serving frequent requests from the cache.
+1. **AWS Amplify:** For hosting the Next.js application, managing CI/CD pipelines, and handling SSR/API routes automatically.
+2.  **Amazon CloudFront:** As a CDN to cache static assets and API responses at the edge, reducing latency for global users.
+3. **AWS Lambda:** To run the API proxy routes serverlessly, allowing for automatic scaling during traffic spikes.
+4. **Amazon ElastiCache:** To cache Binance API responses. This would act as a buffer between the user base and Binance, preventing rate-limiting by serving frequent requests from the cache.
 
 ## Running the project locally
 1. Install all dependencies
@@ -98,3 +98,6 @@ Unit and integration tests are executed using Vitest:
 ````bash
 npm run test
 ````
+
+## Contact me
+This project was made by Kevin Demian Pacheco González, if you have questions or any comment, contact me through my email: kpachecoglz@gmail.com

@@ -106,10 +106,10 @@ export default function AssetDetailsModal({ asset, isOpen, onClose }: AssetDetai
 
         <div className="p-6 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 flex gap-3">
           <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors">
-            {t.details.purchase} {asset.symbol}
+            {t.details.purchase}
           </button>
           <button className="flex-1 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold py-3 rounded-xl transition-colors">
-            {t.details.addToFavorites}
+            {t.details.sell}
           </button>
         </div>
       </div>
